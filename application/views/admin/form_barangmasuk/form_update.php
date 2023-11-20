@@ -208,6 +208,7 @@
                         <?php foreach ($data_barang_update as $d) { ?>
                           <label for="id_transaksi" style="margin-left:220px;display:inline;">ID Kegiatan</label>
                           <input type="text" name="id_transaksi" style="margin-left:45px;width:20%;display:inline;" class="form-control" readonly="readonly" value="<?= $d->id_transaksi ?>">
+                        <?php } ?>
                       </div>
                       <div class="form-group">
                         <label for="tanggal" style="margin-left:220px;display:inline;">Tanggal Mulai</label>
@@ -233,12 +234,12 @@
                         <input type="text" name="kode_barang" required style="width: 90%;margin-right: 67px;margin-left: 11px;" class="form-control" id="kode_barang" value="<?= $d->kode_barang ?>">
                       </div>
                       <div class="form-group" style="display:inline-block;">
-                        <label for="nama_Barang" style="width:73%;">Absensi</label>
-                        <input type="number" name="nama_barang" required style="width:90%;margin-right: 67px;" class="form-control" id="nama_Barang" value="<?= $d->nama_barang ?>">
+                        <label for="nama_Barang" style="width:100%;">Absensi</label>
+                        <input type="number" name="nama_barang" required style="width:60%" class="form-control" id="nama_Barang" value="<?= $d->nama_barang ?>">
                       </div>
                       <div class="form-group" style="display:inline-block;">
-                        <label for="satuan" style="width:73%;">PIC</label>
-                        <select class="form-control" name="satuan" style="width:110%;margin-right: 18px;">
+                        <label for="satuan" style="width:150px; margin-left:-40px;">PIC</label>
+                        <select class="form-control" name="satuan" style="width:100%; margin-left:-40px;">
                           <?php foreach ($list_satuan as $s) { ?>
                             <?php if ($d->satuan == $s->kode_satuan) { ?>
                               <option value="<?= $d->satuan ?>" selected=""><?= $d->satuan ?></option>
@@ -249,16 +250,27 @@
                         </select>
                       </div>
                       <div class="form-group" style="display:inline-block;">
-                        <label for="jumlah" style="width:73%;margin-left:33px;">Jumlah Peserta</label>
-                        <input type="number" name="jumlah" style="width:41%;margin-left:34px;margin-right:18px;" class="form-control" id="jumlah" value="<?= $d->jumlah ?>">
+                        <label for="jumlah" style="width:73%;">Jumlah Peserta</label>
+                        <input type="number" name="jumlah" style="width:60%" class="form-control" id="jumlah" value="<?= $d->jumlah ?>">
                       </div>
-                    <?php } ?>
-                    <!-- /.box-body -->
 
-                    <div class="box-footer" style="width:93%;">
-                      <a type="button" class="btn btn-default" style="width:10%" onclick="history.back(-1)" name="btn_kembali"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
-                      <button type="submit" style="width:15%;margin-left:689px;" class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> Submit</button>&nbsp;&nbsp;&nbsp;
-                    </div>
+                      <div class="form-group" style="display:inline-block;">
+                        <label for="jenis" style="width:130px;margin-left:-20px;">Status</label>
+                        <select class="form-control" name="jenis_kegiatan" style="width:100%; margin-left:-20px;">
+                          <option value="<?= $d->jenis_kegiatan ?>"><?= $d->jenis_kegiatan ?></option>
+                          <option value="">-- Pilih --</option>
+                          <option value="Internal">Internal</option>
+                          <option value="Eksternal">Eksternal</option>
+                        </select>
+                      </div>
+
+                      <!-- /.box-body -->
+
+                      <div class="box-footer" style="width:93%;">
+                        <a type="button" class="btn btn-default" style="width:10% " onclick="history.back(-1)" name="btn_kembali"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
+                        <button type="reset" class="btn btn-basic" name="btn_reset" style="width:95px;margin-left:55%;"><i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+                        <button type="submit" style="width:13%;" class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> Submit</button>&nbsp;&nbsp;&nbsp;
+                      </div>
                   </form>
                 </div>
               </div>

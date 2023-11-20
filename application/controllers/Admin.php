@@ -21,6 +21,7 @@ class Admin extends CI_Controller
       $data['dataPIC'] = $this->M_admin->numrows('tb_satuan');
       $data['kegiatanMasuk'] = $this->M_admin->numrows('tb_barang_masuk');
       $data['kegiatanKeluar'] = $this->M_admin->numrows('tb_barang_keluar');
+      $data['kegiatanMasuk1'] = $this->M_admin->numrows('tb_barang_masuk', 'jenis_kegiatan');
       $this->load->view('admin/index', $data);
     } else {
       $this->load->view('login/login');
@@ -296,6 +297,7 @@ class Admin extends CI_Controller
     $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
     $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
     $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+    $this->form_validation->set_rules('jenis_kegiatan', 'Jenis Kegiatan', 'required');
     $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
 
     if ($this->form_validation->run() == TRUE) {
@@ -306,7 +308,9 @@ class Admin extends CI_Controller
       $kode_barang  = $this->input->post('kode_barang', TRUE);
       $nama_barang  = $this->input->post('nama_barang', TRUE);
       $satuan       = $this->input->post('satuan', TRUE);
+      $jenis_kegiatan = $this->input->post('jenis_kegiatan', TRUE);
       $jumlah       = $this->input->post('jumlah', TRUE);
+
 
       $data = array(
         'id_transaksi' => $id_transaksi,
@@ -316,6 +320,7 @@ class Admin extends CI_Controller
         'kode_barang'  => $kode_barang,
         'nama_barang'  => $nama_barang,
         'satuan'       => $satuan,
+        'jenis_kegiatan' => $jenis_kegiatan,
         'jumlah'       => $jumlah
       );
       $this->M_admin->insert('tb_barang_masuk', $data);
@@ -335,6 +340,7 @@ class Admin extends CI_Controller
     $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
     $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
     $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+    $this->form_validation->set_rules('jenis_kegiatan', 'Jenis Kegiatan', 'required');
 
     if ($this->form_validation->run() == TRUE) {
       $id_transaksi = $this->input->post('id_transaksi', TRUE);
@@ -345,6 +351,7 @@ class Admin extends CI_Controller
       $nama_barang  = $this->input->post('nama_barang', TRUE);
       $satuan       = $this->input->post('satuan', TRUE);
       $jumlah       = $this->input->post('jumlah', TRUE);
+      $jenis_kegiatan = $this->input->post('jenis_kegiatan', TRUE);
 
       $where = array('id_transaksi' => $id_transaksi);
       $data = array(
@@ -355,7 +362,9 @@ class Admin extends CI_Controller
         'kode_barang'  => $kode_barang,
         'nama_barang'  => $nama_barang,
         'satuan'       => $satuan,
-        'jumlah'       => $jumlah
+        'jumlah'       => $jumlah,
+        'jenis_kegiatan' => $jenis_kegiatan
+
       );
       $this->M_admin->update('tb_barang_masuk', $data, $where);
       $this->session->set_flashdata('msg_berhasil', 'Data Barang Berhasil Diupdate');
@@ -483,6 +492,7 @@ class Admin extends CI_Controller
       $nama_barang    = $this->input->post('nama_barang', TRUE);
       $satuan         = $this->input->post('satuan', TRUE);
       $jumlah         = $this->input->post('jumlah', TRUE);
+      $jenis_kegiatan = $this->input->post('jenis_kegiatan', TRUE);
 
       $where = array('id_transaksi' => $id_transaksi);
       $data = array(
@@ -493,7 +503,8 @@ class Admin extends CI_Controller
         'kode_barang' => $kode_barang,
         'nama_barang' => $nama_barang,
         'satuan' => $satuan,
-        'jumlah' => $jumlah
+        'jumlah' => $jumlah,
+        'jenis_kegiatan' => $jenis_kegiatan
       );
       $this->M_admin->insert('tb_barang_keluar', $data);
       $this->session->set_flashdata('msg_berhasil_keluar', 'Data Berhasil Keluar');

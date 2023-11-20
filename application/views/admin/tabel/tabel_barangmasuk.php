@@ -215,16 +215,15 @@
                     <tr>
                       <th>No</th>
                       <th>ID_Kegiatan</th>
+                      <th>Nama Kegiatan</th>
+                      <th style="padding-inline-start: 30px; padding-inline-end: 30px;">PIC</th>
                       <th>Tanggal Mulai</th>
                       <th>Tanggal Selesai</th>
-                      <th>Status</th>
-                      <th>Nama Kegiatan</th>
-                      <th>Absensi</th>
-                      <th>PIC</th>
                       <th>Jumlah Peserta</th>
-                      <th>Update</th>
-                      <th>Delete</th>
-                      <th>Keluarkan</th>
+                      <th>Absensi</th>
+                      <th>Jenis Kegiatan</th>
+                      <th>Status</th>
+                      <th style="padding-inline-start: 54px; padding-inline-end: 54px;">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -234,16 +233,21 @@
                         <?php foreach ($list_data as $dd) : ?>
                           <td><?= $no ?></td>
                           <td><?= $dd->id_transaksi ?></td>
+                          <td><?= $dd->kode_barang ?></td>
+                          <td><?= $dd->satuan ?></td>
                           <td><?= $dd->tanggal ?></td>
                           <td><?= $dd->tanggal_selesai ?></td>
-                          <td><?= $dd->lokasi ?></td>
-                          <td><?= $dd->kode_barang ?></td>
-                          <td><?= $dd->nama_barang ?></td>
-                          <td><?= $dd->satuan ?></td>
                           <td><?= $dd->jumlah ?></td>
-                          <td><a type="button" class="btn btn-info" href="<?= base_url('admin/update_barang/' . $dd->id_transaksi) ?>" name="btn_update" style="margin:auto;"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                          <td><a type="button" class="btn btn-danger btn-delete" href="<?= base_url('admin/delete_barang/' . $dd->id_transaksi) ?>" name="btn_delete" style="margin:auto;"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                          <td><a type="button" class="btn btn-success btn-barangkeluar" href="<?= base_url('admin/barang_keluar/' . $dd->id_transaksi) ?>" name="btn_barangkeluar" style="margin:auto;"><i class="fa fa-sign-out" aria-hidden="true"></i></a></td>
+                          <td><?= $dd->nama_barang ?></td>
+                          <td><?= $dd->jenis_kegiatan ?></td>
+                          <td><?= $dd->lokasi ?></td>
+                          <td style="float: left;">
+                            <a type="button" class="btn btn-info" href="<?= base_url('admin/update_barang/' . $dd->id_transaksi) ?>" name="btn_update" style="margin:auto;"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a type="button" class="btn btn-danger btn-delete" href="<?= base_url('admin/delete_barang/' . $dd->id_transaksi) ?>" name="btn_delete" style="margin:auto;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a type="button" class="btn btn-success btn-barangkeluar" href="<?= base_url('admin/barang_keluar/' . $dd->id_transaksi) ?>" name="btn_barangkeluar" style="margin:auto;"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                          </td>
+                          <!-- <td><a type="button" class="btn btn-danger btn-delete" href="<?= base_url('admin/delete_barang/' . $dd->id_transaksi) ?>" name="btn_delete" style="margin:auto;"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                          <td><a type="button" class="btn btn-success btn-barangkeluar" href="<?= base_url('admin/barang_keluar/' . $dd->id_transaksi) ?>" name="btn_barangkeluar" style="margin:auto;"><i class="fa fa-sign-out" aria-hidden="true"></i></a></td> -->
                     </tr>
                     <?php $no++; ?>
                   <?php endforeach; ?>
@@ -255,13 +259,15 @@
                     <tr>
                       <th>No</th>
                       <th>ID_Kegiatan</th>
+                      <th>Nama Kegiatan</th>
+                      <th>PIC</th>
                       <th>Tanggal Mulai</th>
                       <th>Tanggal Selesai</th>
-                      <th>Status</th>
-                      <th>Nama Kegiatan</th>
-                      <th>Absensi</th>
-                      <th>PIC</th>
                       <th>Jumlah Peserta</th>
+                      <th>Absensi</th>
+                      <th>Jenis Kegiatan</th>
+                      <th>Status</th>
+                      <th style="padding-inline-start: 54px; padding-inline-end: 54px;">Aksi</th>
                     </tr>
                   </tfoot>
                 </table>

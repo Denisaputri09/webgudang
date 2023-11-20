@@ -239,12 +239,12 @@
                         <input type="text" name="kode_barang" style="width: 90%;margin-right: 67px;margin-left: 11px;" class="form-control" id="kode_barang" placeholder="Nama Kegiatan">
                       </div>
                       <div class="form-group" style="display:inline-block;">
-                        <label for="nama_Barang" style="width:73%;">Absensi</label>
-                        <input type="text" name="nama_barang" style="width:90%;margin-right: 67px;" class="form-control" id="nama_Barang" readonly="readonly" value="0">
+                        <label for="nama_Barang" style="width:100%;">Absensi</label>
+                        <input type="text" name="nama_barang" style="width:60%;" class="form-control" id="nama_Barang" readonly="readonly" value="0">
                       </div>
                       <div class="form-group" style="display:inline-block;">
-                        <label for="satuan" style="width:73%;">PIC</label>
-                        <select class="form-control" name="satuan" style="width:110%;margin-right: 18px;">
+                        <label for="satuan" style="width:150px; margin-left:-40px;">PIC</label>
+                        <select class="form-control" name="satuan" style="width:100%; margin-left:-40px;">
                           <option value="" selected="">-- Pilih --</option>
                           <?php foreach ($list_satuan as $s) { ?>
                             <option value="<?= $s->kode_satuan ?>"><?= $s->nama_satuan ?></option>
@@ -252,17 +252,26 @@
                         </select>
                       </div>
                       <div class="form-group" style="display:inline-block;">
-                        <label for="jumlah" style="width:73%;margin-left:33px;">Jumlah Peserta</label>
-                        <input type="number" name="jumlah" style="width:41%;margin-left:34px;margin-right:18px;" class="form-control" id="jumlah">
+                        <label for="jumlah" style="width:73%;">Jumlah Peserta</label>
+                        <input type="number" name="jumlah" style="width:60%;" class="form-control" id="jumlah">
                       </div>
                       <div class="form-group" style="display:inline-block;">
-                        <button type="reset" class="btn btn-basic" name="btn_reset" style="width:95px;margin-left:-70px;"><i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+                        <label for="jenis" style="width:130px;margin-left:-20px;">Jenis Kegiatan</label>
+                        <select class="form-control" name="jenis_kegiatan" style="width:100%; margin-left:-20px;">
+                          <option value="">-- Pilih --</option>
+                          <option value="Internal">Internal</option>
+                          <option value="Eksternal">Eksternal</option>
+                        </select>
+                      </div>
+                      <div class="form-group" style="display:inline-block;">
+
                       </div>
                       <!-- /.box-body -->
                       <div class="box-footer" style="width:93%;">
                         <a type="button" class="btn btn-default" style="width:10%;margin-right:26%" onclick="history.back(-1)" name="btn_kembali"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
-                        <a type="button" class="btn btn-info" style="width:15%;margin-right:29%" href="<?= base_url('admin/tabel_barangmasuk') ?>" name="btn_listbarang"><i class="fa fa-table" aria-hidden="true"></i> Lihat Data Kegiatan</a>
-                        <button type="submit" style="width:15%" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Submit</button>
+                        <a type="button" class="btn btn-info" style="width:15%;margin-right:24%" href="<?= base_url('admin/tabel_barangmasuk') ?>" name="btn_listbarang"><i class="fa fa-table" aria-hidden="true"></i> Lihat Data Kegiatan</a>
+                        <button type="reset" class="btn btn-basic" name="btn_reset" style="width:95px;margin-left:-70px;"><i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+                        <button type="submit" style="width:13%; margin-left:10px" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Submit</button>
                       </div>
                   </form>
                 </div>

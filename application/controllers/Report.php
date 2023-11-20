@@ -50,7 +50,8 @@ class Report extends CI_Controller
 
     $html =
       '<div>
-        <h1 align="center">Invoice Bukti Pengeluaran Barang</h1>
+        <h1 align="center">Invoice Bukti Pengeluaran Barang 
+        </h1>
         
         <table border="1">
           <tr>
@@ -135,7 +136,7 @@ class Report extends CI_Controller
 
     $html =
       '<div>
-        <h1 align="center">Invoice Bukti Pengeluaran Barang</h1><br>
+        <h1 align="center">Invoice Bukti Kegiatan</h1><br>
         <p>No Id Transaksi  : ' . $id . '</p>
         <p>Tanggal          : ' . $tgl1 . '/' . $tgl2 . '/' . $tgl3 . '</p>
 
@@ -145,7 +146,7 @@ class Report extends CI_Controller
             <th style="width:40px" align="center">No</th>
             <th style="width:110px" align="center">ID Transaksi</th>
             <th style="width:110px" align="center">Tanggal Masuk</th>
-            <th style="width:110px" align="center">Tanggal Keluar</th>
+            <th style="width:110px" align="center">Tanggal Terlaksana</th>
             <th style="width:130px" align="center">PIC</th>
             <th style="width:140px" align="center">Nama Kegiatan</th>
             <th style="width:140px" align="center">Absensi</th>
@@ -168,10 +169,7 @@ class Report extends CI_Controller
       $html .= '<td align="center">' . $d->jumlah . '</td>';
       $html .= '</tr>';
 
-      $html .= '<tr>';
-      $html .= '<td align="center" colspan="8"><b>Jumlah</b></td>';
-      $html .= '<td align="center">' . $d->jumlah . '</td>';
-      $html .= '</tr>';
+
       $no++;
     }
 
